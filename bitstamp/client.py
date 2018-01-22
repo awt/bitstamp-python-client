@@ -202,7 +202,7 @@ class Trading(Public):
         data = super(Trading, self)._default_data(*args, **kwargs)
         data['key'] = self.key
         nonce = self.get_nonce()
-        msg = str(nonce) + self.username + self.key
+        msg = str(nonce) + str(self.username) + self.key
 
         signature = hmac.new(
             self.secret.encode('utf-8'), msg=msg.encode('utf-8'),
